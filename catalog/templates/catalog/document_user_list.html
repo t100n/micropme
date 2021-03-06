@@ -1,0 +1,20 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>User documents</h1>
+
+    {% if document_list %}
+    <ul>
+
+      {% for document in document_list %} 
+      <li>
+        <a href="{% url 'document-detail' document.pk %}">{{document.id}}</a> ({{ document.creator }})        
+      </li>
+      {% endfor %}
+    </ul>
+
+    {% else %}
+      <p>There are no documents borrowed.</p>
+    {% endif %}       
+{% endblock %}
+
